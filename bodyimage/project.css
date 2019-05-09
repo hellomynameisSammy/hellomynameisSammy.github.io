@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+html{
+    background-color: #ffeaf4;
+    font-family: 'Zilla Slab', serif;
+    color: #494949;
+    margin: 0 auto;
+}
+h1{
+    text-align: center
+}
+p{
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 20px;
+}
+h3{
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#button3{
+    background-color: darkgrey;
+    border: none;
+    color: black;
+    font-size: 16px;
+    padding: 14px 40px;
+    font-family: 'Zilla Slab', serif;
+    float: right;
+}
+#button3:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#button2{
+    background-color: darkgrey;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 14px 40px;
+    font-family: 'Zilla Slab', serif;
+    float: left;
+}
+#button2:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#button1{
+    max-width: 90%;
+    background-color: #ffadf1;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 14px 40px;
+    font-family: 'Zilla Slab', serif;
+}
+#button1:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#picture{
+    width: 500px;
+    display: block;
+    margin: auto;
+}
+#picture2{
+    width: 700px;
+    display: block;
+    margin: auto;
+}
+#buttons{
+    width: 1100px;
+    margin: auto;
+    text-align: center;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="project.css">
+</head>
+    <body>
+            <h1>Body Image and Beauty Standards</h1>
+        <img id = "picture2" src = "For Sammmmy.png"/>
+            <p> Hello! My name is Sammy, and like almost everyone else in the world, I have struggled with being confident. When you don't feel confident, you probably want your friends to help you get back into a positive mindset. But sometimes things in the media can tear you back down again, and that is a big problem.</p>
+            <p> In order to make a difference in the world, you need to be confident. But many people, especially girls, face criticism from others because of their apperance, which drags them down. There are so many different types of people in the world, so it makes no sense to think that there is only one way to be beautiful. Social Media, movies, magazines, and even toys, can promote a body that no one can achieve without photoshop, and women are constantly being called too dark, too light, too fat, or too skinny. This can definitely lower someone's confidence and distract them from chasing their goals.</p>
+        <img id="picture" src="barbie.jpg">
+            <p>But there are also a lot of positive messages being spread through social media. In fact, Barbie, who is infamous for its dolls with extremely unrealistic beauty standards, is attempting to diversify its products with dolls with different body types, although there are mixed reactions. But positivity is the only way to stop people from comparing themselves to unrealistic images. In fact, "fat shaming" actually leads to consuming more unhealthy foods and gaining more weight. So, just know that you are awesome and anyone who says otherwise doesn't matter to you.</p>
+        
+        <div id="buttons">
+            <input id="button2" type="button" value="Click to see a quote!" onclick="quote()"/>
+            <input id="button1" type="button" value="Click to answer a question!" onclick="question()"/>
+            <input id="button3" type="button" value="Click to watch a video!" onclick="window.open('https://www.youtube.com/watch?v=Qc3ysEHnujE')" />
+        </div>
+            <div id="div">
+            <h3 id="h3">Responses:</h3>
+            </div>
+        <h3>Feel Inspired? Draw here:</h3>
+        <canvas id="canvas" width="800" height="600"></canvas>
+    <br/>
+    <input type="color" id="color" onchange="changeColor()"/>
+    <input type="button" value="Size" onclick="changeSize()"/>
+    <select id="tool" onchange="changeTool()">
+            <option value="square">Square</option>
+            <option value="circle">Circle</option>
+            <option value="slinky">Slinky</option>
+        </select>
+<!--    <input type="button" value="Save Image" onclick="saveImage()"/>-->
+    <input type="button" value="Clear" onclick="clearCanvas()"/>
+        
+        <script>
+            
+//var name = prompt("What's your name?");
+//var pass = prompt("Are you beautiful, "+name+"?");
+//pass = pass.toLowerCase();
+//var yesYes = "yes";
+//
+//    while(pass != yesYes){
+//        pass = prompt("Yes you are. Try again.");
+//    }      
+//    alert("I agree.");
+            
+            var numReponses=0;
+            function question(){
+            var responses = prompt("What can we do to solve this problem?");   
+            var para = document.createElement("p");
+            var text = document.createTextNode(responses);
+            para.appendChild(text);
+            var element = document.getElementById("div");
+            element.appendChild(para);
+            numReponses++;
+            var h3 = document.getElementById("h3");
+            h3.innerHTML = numReponses+" Responses:";
+        }
+             
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var drawing = false;
+    var color = "black";
+    var size = 10;
+    var tool = "square";
+    var quotes= ["Love who you are, embrace who you are. Love yourself. When you love yourself, people can kind of pick up on that: they can see confidence, they can see self-esteem, and naturally, people gravitate towards you. - Lilly Singh", "It's all about confidence and how you feel about yourself. There's no such thing as a perfect woman. I like imperfections - that's what makes you unique. - Hayley Hasselhoff", "Whether you come from a council estate or a country estate, your success will be determined by your own confidence and fortitude. - Michelle Obama"];
+    
+            
+    canvas.addEventListener("mousemove", mouseMove);
+    canvas.addEventListener("mousedown", mouseDown);
+    canvas.addEventListener("mouseup", mouseUp);
+    
+    function mouseMove(event){
+        var x = event.pageX - canvas.offsetLeft;
+        var y = event.pageY - canvas.offsetTop;
+        if(drawing == true){
+            if(tool == "square"){
+            context.fillRect (x, y, size, size);
+            }
+         else if(tool == "circle"){
+            context.strokeStyle = color;
+            context.beginPath();
+            context.arc(x, y, size, 0, 2 * Math.PI, false);
+            context.fill();
+            context.stroke();
+        } else {
+            context.strokeStyle = "black";
+            context.beginPath();
+            context.arc(x, y, size, 0, 2 * Math.PI, false);
+            context.fill();
+            context.stroke();
+            }
+        }
+    }
+            
+    function mouseDown(event){
+        drawing = true;
+    }
+    
+    function mouseUp(event){
+        drawing = false;
+    }
+            
+    function changeColor(){
+        color = document.getElementById("color").value;
+        context.fillStyle = color;
+    }
+    
+    function changeSize(){
+        var newSize = prompt("Enter font size:");
+        size = parseInt(newSize);
+    }
+            
+//    function saveImage(){
+//        var image = canvas.toDataURL();
+//        window.location.href = image;
+//    }
+            
+    function clearCanvas(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+            
+    function changeTool(){
+        tool = document.getElementById("tool").value;
+    }
+            
+    function quote(){
+        var rand = Math.floor(Math.random() * 3);
+        alert(quotes[rand])
+    }
+            
+        </script>
+        
+    </body>
+</html>
